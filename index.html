@@ -7,14 +7,29 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #000;
+            background-color: #0000009d;
             color: #fff;
             text-align: center;
-            padding: 50px;
+            margin: 0;
+            padding-top: 60px; /* Ensure content is not hidden under nav */
+            box-sizing: border-box;
         }
         h1 {
             font-size: 3em;
             margin-bottom: 10px;
+            background: linear-gradient(90deg, #fff, #ccc);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradient-flow 3s infinite linear;
+        }
+        @keyframes gradient-flow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
         h2 {
             font-size: 1.5em;
@@ -38,18 +53,91 @@
         .portfolio { background: linear-gradient(to right, #777, #333); }
         .skills { background: linear-gradient(to right, #777, #333); }
         .contact { background: linear-gradient(to right, #777, #333); }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            background-color: #333;
+            padding: 10px 0;
+            box-shadow: 0 4px 2px -2px gray;
+            box-sizing: border-box;
+        }
+        nav a {
+            margin: 0 15px;
+        }
+        section {
+            height: 100vh;
+            padding-top: 60px;
+            box-sizing: border-box;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100vw;
+            background-color: #333;
+            padding: 10px 0;
+            box-shadow: 0 -4px 2px -2px gray;
+            box-sizing: border-box;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .image-grid img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .image-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            window.location.hash = "#section1";
+        });
+    </script>
 </head>
 <body>
-    <h1>GuoJunzhang</h1>
-    <h2>Code</h2>
-    <a href="music/music.html" class="button inspiration">音乐王国</a>
-    <a href="portfolio.html" class="button portfolio">作品集</a>
-    <a href="skills.html" class="button skills">玩个小游戏</a>
-    <a href="contact.html" class="button contact">联系我</a>
+    <nav>
+        <a href="#section1" class="button inspiration">音乐王国</a>
+        <a href="#section2" class="button portfolio">作品集</a>
+        <a href="#section3" class="button skills">玩个小游戏</a>
+        <a href="#section4" class="button contact">联系我</a>
+    </nav>
+    
+    <section id="section1">
+        <h1>音乐王国</h1>
+        <div class="image-grid">
+            <a href="music\music.html"><img src="music\assets\images\poster-1.jpg" alt="Image 1"></a>
+            <a href="music\music.html"><img src="music\assets\images\zjl.jpg" alt="Image 2"></a>
+            <a href="music\music.html"><img src="music\assets\images\ljj.jpg" alt="Image 3"></a>
+            <a href="music\music.html"><img src="music\assets\images\zj.jpg" alt="Image 4"></a>
+        </div>
+    </section>
+    
+    <section id="section2">
+        <h1>作品集</h1>
+    </section>
+    
+    <section id="section3">
+        <h1>玩个小游戏</h1>
+    </section>
+    
+    <section id="section4">
+        <h1>我的博客</h1>
+    </section>
+    
     <footer>
         <p>&copy; 2024 xihuazgj</p>
-        <p>github</p>
+        <p><a href="https://github.com/xihuazgj">GitHub</a></p>
     </footer>
 </body>
 </html>
