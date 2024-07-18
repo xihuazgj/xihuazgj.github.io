@@ -276,8 +276,12 @@ const isMusicEnd = function () {
     playerSeekRange.value = audioSource.currentTime;
     playerRunningTime.textContent = getTimecode(audioSource.currentTime);
     updateRangeFill();
+
+    // Call skipNext to move to the next track
+    skipNext();
   }
 }
+
 
 
 
